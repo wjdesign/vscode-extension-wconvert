@@ -8,7 +8,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "wconvert" is now active!');
+	// console.log('Congratulations, your extension "wconvert" is now active!');
 
 	const input = async (placeHolder: string) => await vscode.window.showInputBox({
 		placeHolder
@@ -22,7 +22,7 @@ export function activate(context: vscode.ExtensionContext) {
 		return num;
 	}
 
-	// 於 vscode Information Window 顯示時間戳
+	// show timestamp at vscode Information Window
 	function showTimestamp(datetime: string) {
 		let timestamp: number | undefined = NaN;
 		try {
@@ -38,7 +38,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	}
 
-	// 詢問 DateTime 輸入框
+	// create input with asking DateTime
 	async function askDateTime() {
 		const fullDateTime = await input("DateTime (format: YYYY-MM-DD hh:mm:ss.ms) (example: 2022-12-31 23:59:59.999)：");
 		if (fullDateTime) {
@@ -60,7 +60,7 @@ export function activate(context: vscode.ExtensionContext) {
 	// 	}
 	// }
 
-	// 於指標處插入產生的時間戳
+	// Insert timestamp at cursor position
 	vscode.commands.registerTextEditorCommand("wconvert.genTimestamp", async (editor, edit) => {
 		const fullDateTime = await input("DateTime (format: YYYY-MM-DD hh:mm:ss.ms) (example: 2022-12-31 23:59:59.999)：");
 		if (!fullDateTime) {
@@ -75,7 +75,7 @@ export function activate(context: vscode.ExtensionContext) {
 				// });
 
 				editor.edit((editBuilder) => {
-					editor.selections.forEach((selectionItem, i) => {
+					editor.selections.forEach((selectionItem) => {
 						editBuilder.insert(selectionItem.active, timestamp.toString());
 					});
 				});
@@ -87,10 +87,10 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	});
 
-	// 只顯示產生的時間戳
+	// only show generated timestamp
 	let generateTimestamp = vscode.commands.registerCommand("wconvert.genTimestampJustShow", askDateTime);
 
-	// 將選取的時間戳轉換成 YYYY-MM-DD HH:mm:ss
+	// format timestamp to YYYY-MM-DD HH:mm:ss that selections
 	let timestamp2DateTime = vscode.commands.registerTextEditorCommand("wconvert.timestamp2dateTime", async (editor, edit) => {
 		// const selectionCode = editor.selection;
 		// const selection = editor.document.getText(selectionCode);
@@ -100,7 +100,7 @@ export function activate(context: vscode.ExtensionContext) {
 		const offset = Number(offsetStr);
 
 		editor.edit((editBuilder) => {
-			editor.selections.forEach((selectionItem, i) => {
+			editor.selections.forEach((selectionItem) => {
 				try {
 					const selection = editor.document.getText(selectionItem);
 					let dateArr = new Date(parseInt(selection) - (-offset * 60 * 60 * 1000)).toISOString().split("T");
@@ -115,7 +115,6 @@ export function activate(context: vscode.ExtensionContext) {
 					// edit.replace(selectionItem, fullDateTime);
 					editBuilder.replace(selectionItem, fullDateTime);
 				} catch (e) {
-					console.log(e);
 					vscode.window.showErrorMessage("Invalid Date.");
 				}
 			});

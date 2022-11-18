@@ -8,7 +8,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "wayne-converting" is now active!');
+	console.log('Congratulations, your extension "wconvert" is now active!');
 
 	const input = async (placeHolder: string) => await vscode.window.showInputBox({
 		placeHolder
@@ -61,7 +61,7 @@ export function activate(context: vscode.ExtensionContext) {
 	// }
 
 	// 於指標處插入產生的時間戳
-	vscode.commands.registerTextEditorCommand("wayne-converting.genTimestamp", async (editor, edit) => {
+	vscode.commands.registerTextEditorCommand("wconvert.genTimestamp", async (editor, edit) => {
 		const fullDateTime = await input("DateTime (format: YYYY-MM-DD hh:mm:ss.ms) (example: 2022-12-31 23:59:59.999)：");
 		if (!fullDateTime) {
 			return;
@@ -88,10 +88,10 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 
 	// 只顯示產生的時間戳
-	let generateTimestamp = vscode.commands.registerCommand("wayne-converting.genTimestampJustShow", askDateTime);
+	let generateTimestamp = vscode.commands.registerCommand("wconvert.genTimestampJustShow", askDateTime);
 
 	// 將選取的時間戳轉換成 YYYY-MM-DD HH:mm:ss
-	let timestamp2DateTime = vscode.commands.registerTextEditorCommand("wayne-converting.timestamp2dateTime", async (editor, edit) => {
+	let timestamp2DateTime = vscode.commands.registerTextEditorCommand("wconvert.timestamp2dateTime", async (editor, edit) => {
 		// const selectionCode = editor.selection;
 		// const selection = editor.document.getText(selectionCode);
 		// edit.replace(selectionCode, fullDateTime);

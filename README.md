@@ -1,6 +1,6 @@
-# wayne-converting  
+# wconvert  
 
-This is the README for my practice extension "wayne-converting". Just only converting between dateTime String and timestamp, or generating the timestamp.
+This is the README for my practice extension "wconvert". Just only converting between dateTime String and timestamp, or generating the timestamp.
 
 # Features  
 

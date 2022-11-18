@@ -1,13 +1,14 @@
 {
-  "name": "wayne-converting",
-  "displayName": "wayne-converting",
+  "name": "wconvert",
+  "displayName": "wconvert",
   "description": "help you convert datetime value",
   "publisher": "4006wayne",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/wjdesign/vscode-extension-wconvert.git"
   },
+  "pricing": "Free",
   "engines": {
     "vscode": "^1.34.0"
   },
@@ -15,21 +16,23 @@
     "Other"
   ],
   "activationEvents": [
-    "*"
+    "onCommand:wconvert.timestamp2dateTime",
+    "onCommand:wconvert.genTimestamp",
+    "onCommand:wconvert.genTimestampJustShow"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "wayne-converting.timestamp2dateTime",
+        "command": "wconvert.timestamp2dateTime",
         "title": "WConvert: DateTime to timestamp"
       },
       {
-        "command": "wayne-converting.genTimestamp",
+        "command": "wconvert.genTimestamp",
         "title": "WConvert: Generate Timestamp"
       },
       {
-        "command": "wayne-converting.genTimestampJustShow",
+        "command": "wconvert.genTimestampJustShow",
         "title": "WConvert: Generate Timestamp Only Show"
       }
     ]

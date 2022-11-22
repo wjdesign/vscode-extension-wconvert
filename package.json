@@ -2,13 +2,14 @@
   "name": "wconvert",
   "displayName": "wconvert",
   "description": "help you convert datetime value",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "icon": "photo.jpeg",
   "publisher": "4006wayne",
   "repository": {
     "type": "git",
     "url": "https://github.com/wjdesign/vscode-extension-wconvert.git"
   },
+  "homepage": "https://github.com/wjdesign/vscode-extension-wconvert/blob/master/README.md",
   "pricing": "Free",
   "engines": {
     "vscode": "^1.73.0"

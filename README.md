@@ -18,6 +18,6 @@ use `Cmd+Shift+P` and searching keywords：`WConvert: DateTime to timestamp` to 
 
 ---
 
-[My Blog](https://wayneblog.ga/)
+[My Blog](https://wayne-blog.com/)
 
 ---
